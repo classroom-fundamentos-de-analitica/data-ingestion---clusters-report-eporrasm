@@ -35,7 +35,7 @@ def ingest_data():
 
             principales_palabras_clave += line[41:]
             if line.strip().endswith(".") or line.strip().endswith("control"):
-                principales_palabras_clave = principales_palabras_clave.replace("\n", "")
+                principales_palabras_clave = principales_palabras_clave.replace("\n", " ")
                 principales_palabras_clave = principales_palabras_clave.replace(".", "")
                 principales_palabras_clave = principales_palabras_clave.replace("     ", " ")
                 principales_palabras_clave = principales_palabras_clave.replace("    ", " ")
@@ -46,3 +46,8 @@ def ingest_data():
 
     df = pd.DataFrame(d)
     return df
+
+# df = ingest_data()
+# for i in range(12):
+#     print(df.principales_palabras_clave.to_list()[i] + "\n")
+# print(df.principales_palabras_clave.to_list()[0] == "maximum power point tracking, fuzzy-logic based control, photo voltaic (pv), photo-voltaic system, differential evolution algorithm, evolutionary algorithm, double-fed induction generator (dfig), ant colony optimisation, photo voltaic array, firefly algorithm, partial shade")
